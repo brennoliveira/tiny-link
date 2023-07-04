@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-fs.copyFileSync(path.join('src', 'index.jsx'), path.join('src', 'index.html'));
+fs.copyFileSync(path.join('src', 'index.tsx'), path.join('src', 'index.html'));
 
 execSync('npm run build', { stdio: 'inherit' });
 
