@@ -13,7 +13,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);  
   const [tooltipMessage, setTooltipMessage] = useState('Copy to clipboard');
 
-  let generatedLink = `${process.env.REACT_APP_API_URL}/${shortenedLink}`;
+  let generatedLink = `http://localhost:3000/${shortenedLink}`;
 
   const handleLinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     //TODO: add custom links.
@@ -27,7 +27,6 @@ const Home = () => {
     try {
       const shortenedURL = await shortenLink(originalLink);
       setShortenedLink(shortenedURL);
-      console.log(shortenedURL)
     } catch (error) {
       errors.push('Failed to request shortened URL.');
       setErrors(errors);

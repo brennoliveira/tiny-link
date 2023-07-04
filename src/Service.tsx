@@ -8,3 +8,12 @@ export const shortenLink = async (originalUrl: string) => {
     throw new Error('API request failed.');
   }
 }
+
+export const redirectService = async (shortenedURL: string) => {
+  try {
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/${shortenedURL}`);
+    return await res.data.originalUrl
+  } catch (error) {
+    console.error('Erro ao obter a URL de redirecionamento:', error);
+  }
+}
