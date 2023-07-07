@@ -1,6 +1,7 @@
 {
   "name": "tiny-link-frontend",
   "version": "0.1.0",
+  "homepage": "https://brennoliveira.github.io/tiny-link",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -27,7 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "node deploy.js"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@types/valid-url": "^1.0.4"
+    "@types/valid-url": "^1.0.4",
+    "gh-pages": "^5.0.0"
   }
 }
