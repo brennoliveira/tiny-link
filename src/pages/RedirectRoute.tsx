@@ -1,11 +1,13 @@
-import { Navigate, useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { redirectService } from '../Service';
 import { useEffect, useState } from 'react';
 
 
-const Redirect = () => {
+const RedirectRoute = () => {
   const { shortenedURL } = useParams<{ shortenedURL: string }>();
   const [redirectURL, setRedirectURL] = useState<string>('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchRedirectURL = async () => {
@@ -15,11 +17,12 @@ const Redirect = () => {
     fetchRedirectURL();
   }, [shortenedURL]);
 
-  if (redirectURL) window.location.href = redirectURL
+  if (!redirectURL.startsWith('http')) navigate('/')
+  else window.location.href = redirectURL
 
   return (
     <div>Carregando...</div>
   )
 }
 
-export default Redirect;
+export default RedirectRoute;

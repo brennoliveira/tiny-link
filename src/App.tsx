@@ -3,7 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
-import Redirect from './pages/Redirect';
+import RedirectRoute from './pages/RedirectRoute';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <div className="inner-wrapper">
         <Router>
           <Routes>
-            <Route path='/' element={<Home />}></Route>
-            <Route path='/:shortenedURL' element={<Redirect />}></Route>
+            <Route path='/tiny-link' element={<Home />}></Route>
+            <Route path='/tiny-link/:shortenedURL' element={<RedirectRoute />}></Route>
           </Routes>
         </Router>
       </div>

@@ -13,7 +13,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);  
   const [tooltipMessage, setTooltipMessage] = useState('Copy to clipboard');
 
-  let generatedLink = `http://localhost:3000/${shortenedLink}`;
+  let generatedLink = `https://brennoliveira.github.io/tiny-link/${shortenedLink}`;
 
   const handleLinkChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     //TODO: add custom links.
